@@ -4,13 +4,13 @@
 #
 firmware_port_test ( ) {
 
-    FIRMWARE_PATH="/usr/local/share/${1}"
+    FIRMWARE_PATH="${PREFIX}/share/${1}"
     if [ ! -f "${FIRMWARE_PATH}/${2}" ]; then
         echo "Please install sysutils/$1 and re-run this script."
         echo "You can do this with:"
         echo "  $ sudo pkg install sysutils/$1"
         echo "or by building the port:"
-        echo "  $ cd /usr/ports/sysutils/$1"
+        echo "  $ cd ${PORTS_PATH}/sysutils/$1"
         echo "  $ make -DBATCH all install"
         exit 1
     fi

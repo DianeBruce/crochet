@@ -1,5 +1,6 @@
 # Board setup will often overwrite this.
 
+
 . ${LIBDIR}/freebsd_xdev.sh
 
 # $1: Variable that holds root of U-Boot tree
@@ -230,13 +231,13 @@ uboot_patch_files ( ) {
 #
 uboot_port_test ( ) {
 
-    UBOOT_PATH="/usr/local/share/u-boot/${1}"
+    UBOOT_PATH="${PREFIX}/share/u-boot/${1}"
     if [ ! -f "${UBOOT_PATH}/${2}" ]; then
 	echo "Please install sysutils/$1 and re-run this script."
 	echo "You can do this with:"
 	echo "  $ sudo pkg install sysutils/$1"
 	echo "or by building the port:"
-	echo "  $ cd /usr/ports/sysutils/$1"
+	echo "  $ cd ${PORTS_PATH}/sysutils/$1"
 	echo "  $ make -DBATCH all install"
 	exit 1
     fi
